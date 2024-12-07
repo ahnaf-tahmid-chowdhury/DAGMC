@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.12)
-enable_language(CXX)
 
 project(DAGMC)
 
@@ -8,6 +7,8 @@ set(DAGMC_MAJOR_VERSION 3)
 set(DAGMC_MINOR_VERSION 2)
 set(DAGMC_PATCH_VERSION 3)
 set(DAGMC_VERSION ${DAGMC_MAJOR_VERSION}.${DAGMC_MINOR_VERSION}.${DAGMC_PATCH_VERSION})
+
+enable_language(CXX)
 
 if(MSVC)
   set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
