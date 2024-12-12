@@ -62,10 +62,8 @@ if(BUILD_MCNP5 OR BUILD_MCNP6)
 endif()
 
 # Find HDF5
-find_package(HDF5 REQUIRED)
+find_package(HDF5 REQUIRED) 
 
-# Remove HDF5 transitive dependencies that are system libraries
-list(FILTER HDF5_LIBRARIES EXCLUDE REGEX ".*lib(pthread|dl|m).*")
 set(HDF5_LIBRARIES_SHARED ${HDF5_LIBRARIES})
 # CMake doesn't let you find_package(HDF5) twice so we have to do this instead
 if (BUILD_STATIC_LIBS)
@@ -75,7 +73,6 @@ endif ()
 if (NOT BUILD_SHARED_LIBS)
   set(HDF5_LIBRARIES_SHARED)
 endif ()
-set(HDF5_LIBRARIES)
 
 message(STATUS "HDF5_INCLUDE_DIRS: ${HDF5_INCLUDE_DIRS}")
 message(STATUS "HDF5_LIBRARIES_SHARED: ${HDF5_LIBRARIES_SHARED}")

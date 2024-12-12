@@ -1,11 +1,11 @@
 message("")
 
-if(MSVC)
+if(WIN32)
   execute_process(COMMAND bash -c 
                         "${CMAKE_CURRENT_SOURCE_DIR}/amalgamate_pyne.sh ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}"
                         RESULT_VARIABLE STATUS 
                         OUTPUT_VARIABLE OUTPUT)
-ELSE(MSVC)
+ELSE(WIN32)
   execute_process(COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/amalgamate_pyne.sh ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}
                         RESULT_VARIABLE STATUS 
                         OUTPUT_VARIABLE OUTPUT)
