@@ -80,6 +80,9 @@ message(STATUS "HDF5_LIBRARIES_STATIC: ${HDF5_LIBRARIES_STATIC}")
 
 include_directories(${HDF5_INCLUDE_DIRS})
 
+# Find CURL for MOAB
+find_package(CURL REQUIRED)
+
 # Find MOAB
 find_package(MOAB REQUIRED)
 
