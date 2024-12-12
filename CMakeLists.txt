@@ -62,7 +62,7 @@ if(BUILD_MCNP5 OR BUILD_MCNP6)
 endif()
 
 # Find HDF5
-find_package(HDF5 REQUIRED) 
+find_package(HDF5 REQUIRED COMPONENTS C HL)  
 
 set(HDF5_LIBRARIES_SHARED ${HDF5_LIBRARIES})
 # CMake doesn't let you find_package(HDF5) twice so we have to do this instead
@@ -84,9 +84,9 @@ include_directories(${HDF5_INCLUDE_DIRS})
 find_package(MOAB REQUIRED)
 
 if(BUILD_SHARED_LIBS)
-  set(MOAB_LIBRARIES_SHARED ${MOAB_LIBRARIES})
+  set(MOAB_LIBRARIES_SHARED MOAB)
 else()
-  set(MOAB_LIBRARIES_STATIC ${MOAB_LIBRARIES})
+  set(MOAB_LIBRARIES_STATIC MOAB)
 endif()
 
 message(STATUS "MOAB_INCLUDE_DIRS: ${MOAB_INCLUDE_DIRS}")
